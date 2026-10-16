@@ -1,0 +1,34 @@
+{
+  "title": "Reed.co.uk Scraper input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keywords": {
+      "title": "Keywords",
+      "type": "array",
+      "description": "Job search keywords, e.g. [\"software engineer\", \"data analyst\"]. Builds https://www.reed.co.uk/jobs/<keywords>-jobs URLs.",
+      "editor": "stringList"
+    },
+    "searchUrls": {
+      "title": "Search URLs (optional)",
+      "type": "array",
+      "description": "Full Reed.co.uk search URLs to scrape instead of / in addition to keywords.",
+      "editor": "stringList"
+    },
+    "maxPages": {
+      "title": "Max pages per search",
+      "type": "integer",
+      "description": "Number of result pages per search (25 jobs per page, ?pageno=N).",
+      "default": 3,
+      "minimum": 1
+    },
+    "maxJobs": {
+      "title": "Max jobs total",
+      "type": "integer",
+      "description": "Overall cap on jobs pushed to the dataset.",
+      "default": 100000,
+      "minimum": 1
+    }
+  },
+  "required": []
+}

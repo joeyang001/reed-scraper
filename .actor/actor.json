@@ -1,0 +1,39 @@
+{
+  "actorSpecification": 1,
+  "name": "reed-scraper",
+  "title": "Reed.co.uk Scraper — UK Jobs, Salaries & Details",
+  "description": "Scrape Reed.co.uk job listings: title, employer, location, salary range and period, working option (remote/hybrid/onsite), full/part-time, category, description snippet, posting and expiry dates, and apply links. Paginated, de-duplicated, normalized, with provenance on every row.",
+  "version": "0.0",
+  "buildTag": "latest",
+  "meta": { "templateId": "python-start" },
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "input": "./INPUT_SCHEMA.json",
+  "categories": ["JOBS", "LEAD_GENERATION"],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Reed jobs output",
+    "description": "UK job listings scraped from Reed.co.uk.",
+    "properties": {
+      "results": { "type": "string", "title": "Jobs", "template": "{{links.apiDefaultDatasetUrl}}/items" }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "job_id": "string", "title": "string", "employer": "string", "employer_id": "string",
+        "employer_type": "string", "location": "string", "county": "string", "salary_from": "integer",
+        "salary_to": "integer", "salary_currency": "string", "salary_period": "string",
+        "salary_type_code": "integer", "working_option": "string", "is_full_time": "boolean",
+        "is_part_time": "boolean", "category": "string", "subcategory": "string",
+        "description_snippet": "string", "date_posted": "string", "display_date": "string",
+        "expiry_date": "string", "is_easy_apply": "boolean", "is_promoted": "boolean",
+        "applicant_count": "integer", "url": "string", "page": "integer", "search_term": "string",
+        "search_url": "string", "schema_version": "string", "fetched_at": "string"
+      }
+    }
+  }
+}
